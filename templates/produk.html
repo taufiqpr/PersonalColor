@@ -1,10 +1,230 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<div class="product-page">
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar Filter -->
+      <div class="col-lg-3 filter-sidebar">
+        <div class="filter-header d-flex justify-content-between align-items-center">
+          <h4 class="mb-0">Filter by (1)</h4>
+          <button class="clear-all">CLEAR ALL</button>
+        </div>
 
-{% block content %}
-<section class="hero-section">
-    <div class="container">
-        <h1 class="display-3 fw-bold mb-3">Produk</h1>
-        <p class="lead">Halaman Produk</p>
+        <div class="accordion" id="filterAccordion">
+          <!-- Product Status -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#productStatus">Product Status</button>
+            </h2>
+            <div id="productStatus" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="status1" />
+                  <label class="form-check-label" for="status1"> New </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="status2" />
+                  <label class="form-check-label" for="status2"> Best Seller </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Type -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#productType">Product Type</button>
+            </h2>
+            <div id="productType" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+              <div class="accordion-body">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="type1" />
+                  <label class="form-check-label" for="type1"> Biru </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="type2" />
+                  <label class="form-check-label" for="type2"> Putih </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional filter sections -->
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="col-lg-9">
+        <div class="row">
+          <!-- Product Card 1 -->
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="biru">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 1" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">Elvive</div>
+                <h3 class="product-title">Dream Lengths Curls Moisture Seal Conditioner</h3>
+                <div class="price">$5.49</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.5/5 (87)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="putih">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 2" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">EverPure</div>
+                <h3 class="product-title">Sulfate Free Curl Shampoo for Bouncy, Shiny Curl Hair</h3>
+                <div class="price">$9.99</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.4/5 (1602)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="biru">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 3" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">Elvive</div>
+                <h3 class="product-title">Dream Lengths Curls Moisture Push Shampoo</h3>
+                <div class="price">$5.49</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.2/5 (46)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="biru">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 2" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">EverPure</div>
+                <h3 class="product-title">Sulfate Free Curl Shampoo for Bouncy, Shiny Curl Hair</h3>
+                <div class="price">$9.99</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.4/5 (1602)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="biru">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 2" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">EverPure</div>
+                <h3 class="product-title">Sulfate Free Curl Shampoo for Bouncy, Shiny Curl Hair</h3>
+                <div class="price">$9.99</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.4/5 (1602)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="biru">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 2" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">EverPure</div>
+                <h3 class="product-title">Sulfate Free Curl Shampoo for Bouncy, Shiny Curl Hair</h3>
+                <div class="price">$9.99</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.4/5 (1602)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="putih">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 2" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">EverPure</div>
+                <h3 class="product-title">Sulfate Free Curl Shampoo for Bouncy, Shiny Curl Hair</h3>
+                <div class="price">$9.99</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.4/5 (1602)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="putih">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 2" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">EverPure</div>
+                <h3 class="product-title">Sulfate Free Curl Shampoo for Bouncy, Shiny Curl Hair</h3>
+                <div class="price">$9.99</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.4/5 (1602)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="product-card" data-color="putih">
+              <div class="product-image">
+                <img src="{{ url_for('static', filename='images/poltekharber.png') }}" alt="Product 2" class="img-fluid" />
+              </div>
+              <div class="product-info">
+                <div class="brand">EverPure</div>
+                <h3 class="product-title">Sulfate Free Curl Shampoo for Bouncy, Shiny Curl Hair</h3>
+                <div class="price">$9.99</div>
+                <div class="rating">
+                  <div class="stars">★★★★☆</div>
+                  <span class="rating-text">4.4/5 (1602)</span>
+                </div>
+                <button class="view-product-btn">VIEW PRODUCT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='main.js') }}"></script>
 {% endblock %}
