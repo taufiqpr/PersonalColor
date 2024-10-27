@@ -25,7 +25,7 @@
 .stat-number {
   font-size: 3rem;
   font-weight: bold;
-  color: #2c3e50; /* Changed from #e91e63 to match the new theme */
+  color: #2c3e50;
 }
 
 .navbar {
@@ -78,9 +78,9 @@
   padding: 15px 45px;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #2c3e50; /* Changed from white to match hero text */
-  background: rgba(44, 62, 80, 0.1); /* Slight dark background */
-  border: 2px solid #2c3e50; /* Changed from white to match text */
+  color: #2c3e50;
+  background: rgba(44, 62, 80, 0.1);
+  border: 2px solid #2c3e50;
   border-radius: 50px;
   cursor: pointer;
   position: relative;
@@ -90,8 +90,8 @@
 }
 
 .btn-mulai:hover {
-  background: #2c3e50; /* Changed from white */
-  color: white; /* Inverse color scheme on hover */
+  background: #2c3e50;
+  color: white;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -127,7 +127,6 @@
   transform: translateX(5px);
 }
 
-/* Tambahkan animasi untuk text */
 .hero-text {
   opacity: 0;
   transform: translateY(20px);
@@ -172,7 +171,6 @@
   }
 }
 
-/* Tambahkan efek hover yang lebih menarik untuk cards */
 .stat-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -182,14 +180,12 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Product Page Styles */
 .product-page {
   padding-top: 100px;
   min-height: 100vh;
   background: linear-gradient(to right, #d7f0f2, #fdf4e3);
 }
 
-/* Filter Sidebar */
 .filter-sidebar {
   padding: 20px;
   background: rgba(255, 255, 255, 0.9);
@@ -241,7 +237,6 @@
   margin-bottom: 8px;
 }
 
-/* Product Cards */
 .product-card {
   background: rgba(255, 255, 255, 0.9);
   border: none;
@@ -337,7 +332,6 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Adjustments */
 @media (max-width: 991px) {
   .filter-sidebar {
     margin-bottom: 30px;
