@@ -396,7 +396,7 @@ body {
 
 /* Footer Styles */
 .footer {
-  background: linear-gradient(to right, #d7f0f2, #fdf4e3);
+  background-color: rgba(255, 255, 255, 0.9) !important;
   padding: 60px 0 30px;
   margin-top: 100px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
