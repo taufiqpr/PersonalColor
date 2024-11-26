@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Script untuk filter
   const filterCheckboxes = document.querySelectorAll(".form-check-input");
   const clearAllButton = document.querySelector(".clear-all");
   const productCards = document.querySelectorAll(".product-card");
@@ -12,9 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
     filterCheckboxes.forEach((checkbox) => {
       if (checkbox.checked) {
         if (checkbox.id.startsWith("type")) {
-          activeFilters.color.push(checkbox.nextElementSibling.textContent.trim().toLowerCase());
+          activeFilters.color.push(
+            checkbox.nextElementSibling.textContent.trim().toLowerCase()
+          );
         } else if (checkbox.id.startsWith("status")) {
-          activeFilters.status.push(checkbox.nextElementSibling.textContent.trim().toLowerCase());
+          activeFilters.status.push(
+            checkbox.nextElementSibling.textContent.trim().toLowerCase()
+          );
         }
       }
     });
@@ -23,8 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const cardColor = card.dataset.color;
       const cardStatus = card.dataset.status;
 
-      const colorMatch = activeFilters.color.length === 0 || activeFilters.color.includes(cardColor);
-      const statusMatch = activeFilters.status.length === 0 || activeFilters.status.includes(cardStatus);
+      const colorMatch =
+        activeFilters.color.length === 0 ||
+        activeFilters.color.includes(cardColor);
+      const statusMatch =
+        activeFilters.status.length === 0 ||
+        activeFilters.status.includes(cardStatus);
 
       if (colorMatch && statusMatch) {
         card.closest(".col-md-4").style.display = "";
@@ -38,12 +47,53 @@ document.addEventListener("DOMContentLoaded", function () {
     checkbox.addEventListener("change", applyFilters);
   });
 
-  clearAllButton.addEventListener("click", function () {
-    filterCheckboxes.forEach((checkbox) => {
-      checkbox.checked = false;
+  if (clearAllButton) {
+    clearAllButton.addEventListener("click", function () {
+      filterCheckboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+      productCards.forEach((card) => {
+        card.closest(".col-md-4").style.display = "";
+      });
     });
-    productCards.forEach((card) => {
-      card.closest(".col-md-4").style.display = "";
+  }
+
+  // Script untuk login
+  const loginForm = document.getElementById("loginForm");
+  const messageDiv = document.getElementById("loginMessage");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Kirim data login ke server
+      fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, password: password }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message) {
+            // Jika login berhasil
+            messageDiv.innerHTML = `<span class="text-success">${data.message}</span>`;
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 1000);
+          } else if (data.error) {
+            // Jika login gagal
+            messageDiv.innerHTML = `<span class="text-danger">${data.error}</span>`;
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          messageDiv.innerHTML = `<span class="text-danger">An error occurred. Please try again.</span>`;
+        });
     });
-  });
+  }
 });

@@ -71,16 +71,14 @@ def register():
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": f"Registration failed: {str(e)}"}), 500
-
+    
 @app.route('/login', methods=['POST'])
 def login():
     try:
         data = request.get_json()
         email = data.get('email')
         password = data.get('password')
-        
-        print(f"Login attempt - Email: {email}, Password: {password}")
-        
+
         if not email or not password:
             return jsonify({"error": "Email and password are required."}), 400
 
@@ -88,10 +86,7 @@ def login():
         
         if not user:
             return jsonify({"error": "User not found."}), 404
-        
-        print(f"Stored hashed password: {user.password}")
-        print(f"Password check result: {user.check_password(password)}")
-        
+
         if user.check_password(password):
             return jsonify({
                 "message": "Login successful!",
@@ -101,8 +96,9 @@ def login():
         else:
             return jsonify({"error": "Invalid email or password."}), 401
     except Exception as e:
-        print(f"Login error: {str(e)}")
         return jsonify({"error": f"Login failed: {str(e)}"}), 500
+
+
 
 @app.route('/users', methods=['GET'])
 def get_users():
