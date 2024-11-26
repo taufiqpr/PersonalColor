@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Script untuk filter
   const filterCheckboxes = document.querySelectorAll(".form-check-input");
   const clearAllButton = document.querySelector(".clear-all");
   const productCards = document.querySelectorAll(".product-card");
@@ -13,13 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     filterCheckboxes.forEach((checkbox) => {
       if (checkbox.checked) {
         if (checkbox.id.startsWith("type")) {
-          activeFilters.color.push(
-            checkbox.nextElementSibling.textContent.trim().toLowerCase()
-          );
+          activeFilters.color.push(checkbox.nextElementSibling.textContent.trim().toLowerCase());
         } else if (checkbox.id.startsWith("status")) {
-          activeFilters.status.push(
-            checkbox.nextElementSibling.textContent.trim().toLowerCase()
-          );
+          activeFilters.status.push(checkbox.nextElementSibling.textContent.trim().toLowerCase());
         }
       }
     });
@@ -28,12 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const cardColor = card.dataset.color;
       const cardStatus = card.dataset.status;
 
-      const colorMatch =
-        activeFilters.color.length === 0 ||
-        activeFilters.color.includes(cardColor);
-      const statusMatch =
-        activeFilters.status.length === 0 ||
-        activeFilters.status.includes(cardStatus);
+      const colorMatch = activeFilters.color.length === 0 || activeFilters.color.includes(cardColor);
+      const statusMatch = activeFilters.status.length === 0 || activeFilters.status.includes(cardStatus);
 
       if (colorMatch && statusMatch) {
         card.closest(".col-md-4").style.display = "";
@@ -58,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Script untuk login
   const loginForm = document.getElementById("loginForm");
   const messageDiv = document.getElementById("loginMessage");
 
@@ -69,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
-      // Kirim data login ke server
       fetch("/login", {
         method: "POST",
         headers: {
@@ -80,13 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.json())
         .then((data) => {
           if (data.message) {
-            // Jika login berhasil
             messageDiv.innerHTML = `<span class="text-success">${data.message}</span>`;
             setTimeout(() => {
               window.location.href = "/";
             }, 1000);
           } else if (data.error) {
-            // Jika login gagal
             messageDiv.innerHTML = `<span class="text-danger">${data.error}</span>`;
           }
         })

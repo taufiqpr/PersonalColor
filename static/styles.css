@@ -1,10 +1,8 @@
-/* Global Styles */
 body {
   background: linear-gradient(to right, #d7f0f2, #fdf4e3);
   min-height: 100vh;
 }
 
-/* Navbar Styles */
 .navbar {
   font-weight: 500;
   background-color: rgba(255, 255, 255, 0.9) !important;
@@ -52,7 +50,6 @@ body {
   color: #e91e63;
 }
 
-/* Hero Section Styles */
 .hero-section {
   height: 100vh;
   display: flex;
@@ -91,7 +88,6 @@ body {
   animation-delay: 0.6s;
 }
 
-/* Button Styles */
 .btn-mulai {
   padding: 15px 45px;
   font-size: 1.2rem;
@@ -147,7 +143,6 @@ body {
   transform: translateX(5px);
 }
 
-/* Stats Section Styles */
 .stats-section {
   margin-top: 40px;
   position: relative;
@@ -183,11 +178,11 @@ body {
 .section-title p {
   font-size: 1rem;
   color: #34495e;
-  white-space: nowrap; /* Prevents line break */
-  overflow: hidden; /* Ensures content doesn't overflow visibly */
-  text-overflow: ellipsis; /* Adds "..." if the text overflows */
-  margin: 0; /* Keeps spacing consistent */
-  max-width: 900px; /* Controls width; adjust as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  max-width: 900px;
 }
 
 .stat-card {
@@ -236,13 +231,11 @@ body {
   line-height: 1.2;
 }
 
-/* Product Page Styles */
 .product-page {
   padding-top: 100px;
   min-height: 100vh;
 }
 
-/* Filter Sidebar Styles */
 .filter-sidebar {
   position: sticky;
   top: 10px;
@@ -267,7 +260,6 @@ body {
   padding: 0;
 }
 
-/* Accordion Styles */
 .accordion-button {
   padding: 10px 0;
   font-weight: 500;
@@ -298,7 +290,6 @@ body {
   margin-bottom: 8px;
 }
 
-/* Product Card Styles */
 .product-card {
   background: rgba(255, 255, 255, 0.9);
   border: none;
@@ -394,7 +385,6 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Styles */
 .footer {
   background-color: rgba(255, 255, 255, 0.9) !important;
   padding: 60px 0 30px;
@@ -509,7 +499,6 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-/* Media Queries */
 @media (max-width: 767px) {
   .footer {
     padding: 40px 0 20px;
@@ -527,7 +516,7 @@ body {
     text-align: center;
   }
 }
-/* Animations */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -539,7 +528,6 @@ body {
   }
 }
 
-/* Media Queries */
 @media (max-width: 991px) {
   .filter-sidebar {
     margin-bottom: 30px;
