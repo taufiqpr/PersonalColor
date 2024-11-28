@@ -54,6 +54,9 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required />
               </div>
+              <div class="mb-3 text-end">
+                <a href="#" class="text-decoration-none" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registerModal">Belum Punya Akun?</a>
+              </div>
               <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
             <div id="loginMessage" class="mt-2 text-center"></div>
@@ -70,21 +73,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="" method="POST">
+            <form>
+              <div id="registerMessage"></div>
               <div class="mb-3">
-                <label for="reg-email" class="form-label">Email address</label>
+                <label for="reg-nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="reg-nama" name="nama" required />
+              </div>
+              <div class="mb-3">
+                <label for="reg-email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="reg-email" name="email" required />
               </div>
               <div class="mb-3">
                 <label for="reg-password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="reg-password" name="password" required />
-              </div>
-              <div class="mb-3">
-                <label for="reg-confirm-password" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="reg-confirm-password" name="confirm_password" required />
-              </div>
-              <div class="mb-3 text-end">
-                <a href="#" class="text-decoration-none" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">Sudah Punya Akun?</a>
               </div>
               <button type="submit" class="btn btn-primary w-100">Register</button>
             </form>

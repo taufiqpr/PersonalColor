@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Filter Handling
   const filterCheckboxes = document.querySelectorAll(".form-check-input");
   const clearAllButton = document.querySelector(".clear-all");
   const productCards = document.querySelectorAll(".product-card");
@@ -49,8 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Login Form Handling
   const loginForm = document.getElementById("loginForm");
-  const messageDiv = document.getElementById("loginMessage");
+  const loginMessageDiv = document.getElementById("loginMessage");
 
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
@@ -69,17 +71,53 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.json())
         .then((data) => {
           if (data.message) {
-            messageDiv.innerHTML = `<span class="text-success">${data.message}</span>`;
+            loginMessageDiv.innerHTML = `<span class="text-success">${data.message}</span>`;
             setTimeout(() => {
               window.location.href = "/";
             }, 1000);
           } else if (data.error) {
-            messageDiv.innerHTML = `<span class="text-danger">${data.error}</span>`;
+            loginMessageDiv.innerHTML = `<span class="text-danger">${data.error}</span>`;
           }
         })
         .catch((error) => {
           console.error("Error:", error);
-          messageDiv.innerHTML = `<span class="text-danger">An error occurred. Please try again.</span>`;
+          loginMessageDiv.innerHTML = `<span class="text-danger">An error occurred. Please try again.</span>`;
+        });
+    });
+  }
+
+  const registerForm = document.querySelector("#registerModal form");
+  const registerMessageDiv = document.getElementById("registerMessage");
+
+  if (registerForm) {
+    registerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(registerForm);
+      const data = Object.fromEntries(formData.entries());
+
+      fetch("/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message) {
+            registerMessageDiv.innerHTML = `<span class="text-success">${data.message}</span>`;
+            registerForm.reset();
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 2000);
+          } else if (data.error) {
+            registerMessageDiv.innerHTML = `<span class="text-danger">${data.error}</span>`;
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          registerMessageDiv.innerHTML = `<span class="text-danger">An error occurred. Please try again.</span>`;
         });
     });
   }
